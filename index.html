@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>JUG Demo</title>
+		<script>var exports = {};</script>
+		<script src="./node_modules/cytoscape/dist/cytoscape.min.js" type="module"></script>
+		<!-- <script src="./node_modules/cytoscape-expand-collapse/cytoscape-expand-collapse.js" type="module"></script> unused -->
+		<!-- <script src="./node_modules/dygraphs/dist/dygraph.js" type="module"></script> unused -->
+		<script type="module" src="/src/main.ts"></script>
+		<link rel="stylesheet" href="src/dygraph.css"/>
+		<link rel="stylesheet" type="text/css" href="src/style.css">
+	</head>
+
+	<body>
+		<div id="north">
+			<div id="titleBar" class="header">
+				<div id="menuBtn" class="button"></div> <!-- Our left menu button -->
+				<div id="titleText">2024 Jug Demo</div>
+				<div id="titleBackground"></div>
+			</div>
+		</div>
+		<div id="container">
+			<div id="west">
+				<div id="westMenuContainer">
+					<button id="loadDataBtn" class="westMenuBtn fontStyling">Load Enron Dataset</button>
+					<button id="categorizeBtn" class="westMenuBtn fontStyling">Categorize Entities</button>
+					<button id="step3" class="westMenuBtn fontStyling">Step 3</button>
+					<button id="loadNERDataBtn" class="westMenuBtn fontStyling">Load NER Dataset</button>
+					<button id="step5" class="westMenuBtn fontStyling">Step 5</button>
+					<label for="slider" class="fontStyling">Filter By Degree:</label>
+					<input type="range" id="slider" name="slider" min="``0" max="50" value="50"> <!-- Setting to 1 will hide all nodes with degree 0 -->
+					<span id="sliderValue" class="fontStyling">50</span> <!-- current value of slider -->
+				</div>
+			</div>
+			<div id="center">
+				<div id="graphContainer" class="main"></div>
+				<div class="nodetip nodetipFontStyling" id="nodetip"></div>
+			</div>
+			<div id="east">
+				<div id="info-toggle"></div> <!-- strip acting as the toggle button -->
+				<div id="info-content">
+					<input type="text" id="search-box" placeholder="Search" class="fontStyling">
+					<span id="selectedElement-info" class="fontStyling node-info-border"></span> <!-- selected element info -->
+					<ul id="search-results-list" class="fontStyling">
+						<!-- list items are programmatically added here -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="south">
+			<div id="timelineContainer" class="footer"></div>
+		</div>
+	</body>
+
+	<script type="module">
+
+		import { init, filterGraph, toggleMenuPanel, toggleInfoPanel, categorizeNodes, clearSearchResults, populateSearchResults, loadNERData } from './src/main.ts';
+
+		let cytoscapeInitialized = false;
+
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('DOM content loaded');
+
+			document.addEventListener('keydown', function(e) {
+				if (e.keyCode === 32 || e.key === ' ') { // space
+					toggleInfoPanel();
+				}
+
+				if (e.keyCode === 192) {
+					toggleMenuPanel();
+				}
+			});
+
+			// Debug shortcut - click on the background to load data
+			document.getElementById('container').addEventListener('click', async function(e) {
+				if (!cytoscapeInitialized) {
+					await init();
+					cytoscapeInitialized = true;
+				}
+			});
+
+			document.getElementById('info-toggle').addEventListener('click', function(e) {
+				toggleInfoPanel();
+			});
+
+			document.getElementById('search-box').addEventListener('input', function(e) {
+				//const query = e.target.value.trim();
+				console.log('stretch-goal');
+			});
+
+			document.getElementById('menuBtn').addEventListener('click', function(e) {
+				toggleMenuPanel();
+			});
+
+			document.getElementById('loadDataBtn').addEventListener('click', function(e) {
+				// TODO: Show 'loading...' spinner tbd
+				init();
+				cytoscapeInitialized = true;
+			});
+
+			document.getElementById('categorizeBtn').addEventListener('click', function(e) {
+				categorizeNodes();
+			});
+
+			document.getElementById('loadNERDataBtn').addEventListener('click', function(e) {
+				loadNERData();
+				//categorizeNodes(); // Separate step or load them categorized already?
+				// By this I mean applying NER classes to them on load.
+			});
+			
+			const slider = document.getElementById('slider');
+			const sliderValue = document.getElementById('sliderValue');
+			slider.addEventListener('input', async function() {
+
+				// Update the label text with the current value of the slider
+				sliderValue.textContent = slider.value;
+
+				await filterGraph();
+			});
+		});
+
+	</script>
+
+</html>

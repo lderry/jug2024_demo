@@ -1,0 +1,29 @@
+[
+	{
+	"date":"2000-07-17T07:01:00.000Z",
+	"subject":"A",
+	"message_id":"<0001.JavaMail.evans@thyme>",
+	"from":1,
+	"to":2,
+	"type":"SentEmail"
+	},
+	
+	{
+	"date":"2000-07-17T07:02:00.000Z",
+	"subject":"B",
+	"message_id":"<0002.JavaMail.evans@thyme>",
+	"from":1,
+	"to":3,
+	"type":"SentEmail"
+	},
+	
+	{
+	"date":"2000-07-17T07:03:00.000Z",
+	"subject":"B",
+	"message_id":"<0003.JavaMail.evans@thyme>",
+	"from":1,
+	"to":3,
+	"type":"SentEmail"
+	}
+]
+

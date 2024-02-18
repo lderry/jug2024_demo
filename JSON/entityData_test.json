@@ -1,0 +1,37 @@
+[
+	{
+		"id": 1,
+		"name": "theophrastus@enron.com",
+		"type": "EnronEmailAddress"
+	},
+	{
+		"id": 2,
+		"name": "joe.bloggs@hotmail.com",
+		"type": "ExternalEmailAddress"
+	},
+	{
+		"id": 3,
+		"name": "Lily@enron.com",
+		"type": "EnronEmailAddress"
+	},
+	{
+		"id": 4,
+		"name": "Willow@enron.com",
+		"type": "EnronEmailAddress"
+	},
+	{
+		"id": 5,
+		"name": "Jupiter@gmail.com",
+		"type": "ExternalEmailAddress"
+	},
+	{
+		"id": 6,
+		"name": "mercury@yahoo.com",
+		"type": "ExternalEmailAddress"
+	},
+	{
+		"id": 7,
+		"name": "pluto@yahoo.com",
+		"type": "ExternalEmailAddress"
+	}
+]

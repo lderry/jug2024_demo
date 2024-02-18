@@ -1,0 +1,26 @@
+{
+  "name": "jugdemo",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/cytoscape": "^3.19.16",
+    "@types/cytoscape-dagre": "^2.3.3",
+    "@types/dygraphs": "^2.1.9",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.1"
+  },
+  "dependencies": {
+    "cytoscape": "^3.28.1",
+    "cytoscape-dagre": "^2.5.0",
+    "cytoscape-expand-collapse": "^4.1.0",
+    "dygraphs": "^2.2.1",
+    "heap": "^0.2.7",
+    "lodash": "^4.17.21",
+    "vite-plugin-require": "^1.1.14"
+  }
+}

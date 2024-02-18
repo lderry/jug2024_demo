@@ -1,0 +1,28 @@
+[
+	{
+	"date":"2000-07-17T08:03:00.000Z",
+	"subject":"Corporate Espionage",
+	"message_id":"<0015.JavaMail.evans@thyme>",
+	"from":1,
+	"to":8,
+	"type":"NER"
+	},
+	
+	{
+	"date":"2000-07-17T08:04:00.000Z",
+	"subject":"Blackmail and corruption",
+	"message_id":"<0016.JavaMail.evans@thyme>",
+	"from":2,
+	"to":9,
+	"type":"NER"
+	},
+	
+	{
+	"date":"2000-07-17T08:05:00.000Z",
+	"subject":"Fraud woohoo!",
+	"message_id":"<0017.JavaMail.evans@thyme>",
+	"from":10,
+	"to":3,
+	"type":"NER"
+	}
+]

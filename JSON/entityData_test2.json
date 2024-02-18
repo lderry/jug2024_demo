@@ -1,0 +1,19 @@
+[
+	{
+		"id": 1,
+		"name": "Mercury@enron.com",
+		"type": "EnronEmailAddress"
+	},
+	
+	{
+		"id": 2,
+		"name": "Venus@gmail.com",
+		"type": "ExternalEmailAddress"
+	},
+	
+	{
+		"id": 3,
+		"name": "Earth@yahoo.com",
+		"type": "ExternalEmailAddress"
+	}
+]
